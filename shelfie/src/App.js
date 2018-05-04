@@ -16,13 +16,21 @@ class App extends Component {
       {imageUrl: '',name: 'Picasso', price: 3000000}
     ]
     }
+    
+  }
+  componentDidMount(){
+    axios.get('api/inventory').then(res =>{
+      this.setState({
+        inventory : res.data
+      })
+    })
   }
   render() {
     let {inventory}=this.state
     return (
       <div className="App">
         <Dashboard inventory={inventory}/>
-        <Form/>
+        <Form get={this.componentDidMount}/>
         <Header/>
       </div>
     );

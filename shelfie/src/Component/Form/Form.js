@@ -9,6 +9,7 @@ export default class Form extends Component{
             productName: '',
             price: 0
         }
+        this.handleImageURL=this.handleImageURL.bind(this)
     }
     handleImageURL(value){
         this.setState({
@@ -35,6 +36,10 @@ export default class Form extends Component{
             price: 0
         })
     }
+    create(name, price, imgUrl){
+        axios.post('/api/inventory',{name: name, price: price, imgUrl: imgUrl}).then(() => this.props.get())
+        this.reset()
+    }
     render(){
         return(
             <div>
@@ -42,7 +47,7 @@ export default class Form extends Component{
                 <input onChange={(ele) => {this.handleProductName(ele.target.value)}}></input>
                 <input onChange={(ele) => {this.handlePrice(ele.target.value)}}></input>
                 <button onClick={() => this.reset()}>Cancel</button>
-                <button>Add to Inventory</button>
+                <button onClick={() => {this.create(this.state.name, this.state.price, this.state.imageURL)}}>Add to Inventory</button>
             </div>
         )
     }
