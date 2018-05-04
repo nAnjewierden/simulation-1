@@ -6,9 +6,9 @@ export default class Dashboard extends Component{
     render(){
         
     this.props.inventory.map((ele, id) => {
-        console.log(ele, id)
-        return <Product/>
-        console.log(ele)
+        //console.log(ele, id)
+        <h2><Product name={ele.name}/></h2>
+        console.log(ele, ele.name)
     })
         return(
             <Product/>

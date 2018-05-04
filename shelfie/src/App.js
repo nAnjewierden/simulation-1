@@ -18,9 +18,10 @@ class App extends Component {
     }
   }
   render() {
+    let {inventory}=this.state
     return (
       <div className="App">
-        <Dashboard inventory={this.state.inventory}/>
+        <Dashboard inventory={inventory}/>
         <Form/>
         <Header/>
       </div>

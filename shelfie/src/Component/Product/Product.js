@@ -4,7 +4,7 @@ import React, {Component} from 'react'
 
 export default function Product(params){
 
-console.log(params.inventory)
+console.log(params.name)
         return(
             <div>s
                 <img src={params.img}/>
