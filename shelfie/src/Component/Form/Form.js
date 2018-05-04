@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import axios from 'axios'
 
 
 export default class Form extends Component{
@@ -7,7 +8,7 @@ export default class Form extends Component{
         this.state={
             imageURL: '',
             productName: '',
-            price: 0
+            price: 0,
         }
         this.handleImageURL=this.handleImageURL.bind(this)
     }

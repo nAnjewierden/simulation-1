@@ -1,8 +1,13 @@
 import React, {Component} from 'react'
 import Product from '../Product/Product'
+import axios from 'axios'
 
 
 export default class Dashboard extends Component{
+
+    deleteIt(value){
+        axios.delete(`./api/inventory/${value}`).then(() => {this.props.get()})
+    }
     render(){
         
     this.props.inventory.map((ele, id) => {
@@ -12,6 +17,7 @@ export default class Dashboard extends Component{
     })
         return(
             <Product/>
+            
         )
     }
 }

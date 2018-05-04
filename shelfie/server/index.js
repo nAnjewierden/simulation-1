@@ -11,8 +11,8 @@ massive(process.env.CONNECTION_STRING).then((dbInstance) => {app.set('db', dbIns
 
 app.get('/api/inventory', cc.get)
 app.post('api/inventory', cc.post)
-// app.put()
-// app.delete()
+app.put('api/inventory/:id', cc.put)
+app.delete('api/inventory/:id', cc.delete)
 
 const port = 3005;
 app.listen(port, () => {console.log(`Server is on port ${port}`)})

@@ -15,4 +15,20 @@ module.exports = {
         .then(() => res.status(200).send())
         .catch((err) => console.log(err))
     },
+    delete: (req,res) =>{
+        const dbInstance = req.app.get('db')
+        const {params} = req
+        dbInstance.delete_product(params.id)
+        .then(() => res.status(200).send())
+        .catch((err) => console.log(err))
+    },
+    put: (req, res) =>{
+        
+        console.log('update')
+        const dbInstance = req.app.get('db')
+        const {params, query} = req
+        dbInstance.update_product([params.id, query.desc])
+        .then(() => res.status(200).send())
+        .catch((err) => console.log(err))
+    }
 }
